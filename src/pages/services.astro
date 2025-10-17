@@ -1,0 +1,47 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+	<h1>Services</h1>
+	<p>Signature services designed for healthy, beautiful hair.</p>
+
+	<section class="services">
+		<div class="card">
+			<h3>Cut & Style</h3>
+			<ul>
+				<li>Women's Cut — from $60</li>
+				<li>Men's Cut — from $40</li>
+				<li>Blowout — from $35</li>
+			</ul>
+		</div>
+		<div class="card">
+			<h3>Color</h3>
+			<ul>
+				<li>Single Process — from $85</li>
+				<li>Partial Highlights — from $120</li>
+				<li>Balayage — from $160</li>
+			</ul>
+		</div>
+		<div class="card">
+			<h3>Treatments</h3>
+			<ul>
+				<li>Deep Conditioning — from $25</li>
+				<li>Gloss/Toner — from $40</li>
+				<li>Smoothing — from $200</li>
+			</ul>
+		</div>
+	</section>
+
+	<p style="color:#6b7280">Prices vary by stylist and hair length. Call for an exact quote.</p>
+</Layout>
+
+<style>
+	.services { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1rem; margin: 1rem 0 2rem; }
+	.card { border: 1px solid var(--border); border-radius: 0.5rem; padding: 1rem; }
+	.card h3 { margin-top: 0; }
+	@media (max-width: 780px) { .services { grid-template-columns: 1fr; } }
+</style>
+
+
+

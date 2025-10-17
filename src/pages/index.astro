@@ -1,0 +1,56 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+	<section class="hero">
+		<h1>Modern Hair, Thoughtful Care.</h1>
+		<p>Nai Salon in Green, Ohio — precision cuts, color artistry, and healthy-hair care.</p>
+		<div class="cta">
+			<a class="btn" href="/services">Explore Services</a>
+			<a class="link" href="/contact">Book a Consultation</a>
+		</div>
+	</section>
+
+	<section class="grid">
+		<article>
+			<h3>Cut & Style</h3>
+			<p>Tailored cuts and blowouts designed around your lifestyle.</p>
+		</article>
+		<article>
+			<h3>Color</h3>
+			<p>Highlights, balayage, and color corrections with hair health first.</p>
+		</article>
+		<article>
+			<h3>Treatments</h3>
+			<p>Deep conditioning, glossing, and smoothing services.</p>
+		</article>
+	</section>
+
+	<section class="panel">
+		<h2>Visit Us in Green, Ohio</h2>
+		<p>Conveniently located with easy parking. Walk-ins welcome when available.</p>
+		<a class="btn" href="/locations">See Location Details</a>
+	</section>
+</Layout>
+
+<style>
+	.hero {
+		padding: 3rem 0 2rem;
+	}
+	.hero h1 { font-size: 2.25rem; margin: 0 0 0.5rem; }
+	.hero p { color: #4b5563; margin: 0 0 1rem; }
+	.cta { display: flex; gap: 1rem; align-items: center; }
+	.link { color: #0ea5e9; }
+	.grid {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 1rem;
+		margin: 2rem 0;
+	}
+	.grid article { padding: 1rem; border: 1px solid var(--border); border-radius: 0.5rem; }
+	.panel { background: var(--muted); padding: 1.25rem; border-radius: 0.5rem; }
+	@media (max-width: 780px) {
+		.grid { grid-template-columns: 1fr; }
+	}
+</style>

@@ -1,0 +1,36 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+	<h1>Contact</h1>
+	<p>Have a question or want to book? Send us a note and we’ll be in touch.</p>
+
+	<div id="contact-panel">
+		<form hx-post="/api/contact" hx-target="#contact-panel" hx-swap="outerHTML" hx-trigger="submit">
+			<label>
+				Name
+				<input name="name" type="text" required />
+			</label>
+			<label>
+				Email
+				<input name="email" type="email" required />
+			</label>
+			<label>
+				Message
+				<textarea name="message" rows="5" required></textarea>
+			</label>
+			<button class="btn" type="submit">Send</button>
+		</form>
+	</div>
+</Layout>
+
+<style>
+	form { display: grid; gap: 0.75rem; max-width: 640px; }
+	label { display: grid; gap: 0.25rem; font-weight: 500; }
+	input, textarea { padding: 0.6rem 0.7rem; border: 1px solid var(--border); border-radius: 0.5rem; font: inherit; }
+	button.btn { width: max-content; }
+</style>
+
+
+

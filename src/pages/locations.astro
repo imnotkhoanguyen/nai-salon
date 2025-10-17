@@ -1,0 +1,28 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+	<h1>Locations</h1>
+	<p>We are proud to serve Green, Ohio.</p>
+
+	<section class="card">
+		<h3>Nai Salon — Green</h3>
+		<p>1234 Massillon Rd, Green, OH 44685</p>
+		<p><strong>Hours:</strong> Tue–Sat 9am–6pm</p>
+		<p><strong>Phone:</strong> (330) 555-0199</p>
+		<div id="map" class="map" aria-label="Map placeholder">Map preview</div>
+	</section>
+
+	<p>
+		<a class="btn" href="/contact">Contact Us</a>
+	</p>
+</Layout>
+
+<style>
+	.card { border: 1px solid var(--border); border-radius: 0.5rem; padding: 1rem; }
+	.map { height: 280px; background: var(--muted); display: grid; place-items: center; color: #6b7280; border-radius: 0.5rem; margin-top: 0.75rem; }
+</style>
+
+
+
