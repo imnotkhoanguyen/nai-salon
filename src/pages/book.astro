@@ -1,0 +1,42 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+	<h1>Book an Appointment</h1>
+	<p>Request a time and we’ll confirm shortly. Prefer to call? (330) 555-0199</p>
+
+	<div id="booking-panel">
+		<form hx-post="/api/book" hx-target="#booking-panel" hx-swap="outerHTML" hx-trigger="submit">
+			<label>
+				Name
+				<input name="name" required />
+			</label>
+			<label>
+				Email
+				<input name="email" type="email" required />
+			</label>
+			<label>
+				Preferred Date
+				<input name="date" type="date" required />
+			</label>
+			<label>
+				Service
+				<select name="service" required>
+					<option value="Cut & Style">Cut & Style</option>
+					<option value="Color">Color</option>
+					<option value="Pedicure">Pedicure</option>
+				</select>
+			</label>
+			<button class="btn" type="submit">Request Booking</button>
+		</form>
+	</div>
+</Layout>
+
+<style>
+	form { display: grid; gap: 0.75rem; max-width: 640px; }
+	label { display: grid; gap: 0.25rem; font-weight: 500; }
+	input, select { padding: 0.6rem 0.7rem; border: 1px solid var(--border); border-radius: 0.5rem; font: inherit; }
+</style>
+
+

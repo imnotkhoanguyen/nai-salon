@@ -1,24 +1,34 @@
 import { renderers } from './renderers.mjs';
 import { c as createExports, s as serverEntrypointModule } from './chunks/_@astrojs-ssr-adapter_MaSQUTMT.mjs';
-import { manifest } from './manifest_B81rmk_6.mjs';
+import { manifest } from './manifest_BgCOYvzP.mjs';
 
 const serverIslandMap = new Map();;
 
 const _page0 = () => import('./pages/_image.astro.mjs');
 const _page1 = () => import('./pages/about.astro.mjs');
-const _page2 = () => import('./pages/api/contact.astro.mjs');
-const _page3 = () => import('./pages/contact.astro.mjs');
-const _page4 = () => import('./pages/locations.astro.mjs');
-const _page5 = () => import('./pages/services.astro.mjs');
-const _page6 = () => import('./pages/index.astro.mjs');
+const _page2 = () => import('./pages/api/book.astro.mjs');
+const _page3 = () => import('./pages/api/contact.astro.mjs');
+const _page4 = () => import('./pages/blog/gel-vs-acrylic.astro.mjs');
+const _page5 = () => import('./pages/blog/prepare-for-appointment.astro.mjs');
+const _page6 = () => import('./pages/blog.astro.mjs');
+const _page7 = () => import('./pages/book.astro.mjs');
+const _page8 = () => import('./pages/contact.astro.mjs');
+const _page9 = () => import('./pages/locations.astro.mjs');
+const _page10 = () => import('./pages/services.astro.mjs');
+const _page11 = () => import('./pages/index.astro.mjs');
 const pageMap = new Map([
     ["node_modules/astro/dist/assets/endpoint/generic.js", _page0],
     ["src/pages/about.astro", _page1],
-    ["src/pages/api/contact.ts", _page2],
-    ["src/pages/contact.astro", _page3],
-    ["src/pages/locations.astro", _page4],
-    ["src/pages/services.astro", _page5],
-    ["src/pages/index.astro", _page6]
+    ["src/pages/api/book.ts", _page2],
+    ["src/pages/api/contact.ts", _page3],
+    ["src/pages/blog/gel-vs-acrylic.astro", _page4],
+    ["src/pages/blog/prepare-for-appointment.astro", _page5],
+    ["src/pages/blog/index.astro", _page6],
+    ["src/pages/book.astro", _page7],
+    ["src/pages/contact.astro", _page8],
+    ["src/pages/locations.astro", _page9],
+    ["src/pages/services.astro", _page10],
+    ["src/pages/index.astro", _page11]
 ]);
 
 const _manifest = Object.assign(manifest, {
@@ -29,7 +39,7 @@ const _manifest = Object.assign(manifest, {
     middleware: () => import('./_noop-middleware.mjs')
 });
 const _args = {
-    "middlewareSecret": "39e15675-2295-42dc-8d2a-96f4447b192a",
+    "middlewareSecret": "dd6b2d50-15fd-4263-b9c0-bc2bc4a6b2c2",
     "skewProtection": false
 };
 const _exports = createExports(_manifest, _args);

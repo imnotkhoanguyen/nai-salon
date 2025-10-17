@@ -1,0 +1,34 @@
+<section class="testimonials" aria-label="Customer testimonials">
+	<h2>What Clients Say</h2>
+	<ul>
+		<li>
+			<blockquote>
+				<p>“Best nail salon in Green, Ohio. Clean, kind, and meticulous!”</p>
+				<cite>— Ashley M.</cite>
+			</blockquote>
+		</li>
+		<li>
+			<blockquote>
+				<p>“My gel manicure lasted over three weeks. Highly recommend Nai Salon.”</p>
+				<cite>— Brianna K.</cite>
+			</blockquote>
+		</li>
+		<li>
+			<blockquote>
+				<p>“Beautiful pedicure and relaxing experience. I finally found my spot.”</p>
+				<cite>— Jenna S.</cite>
+			</blockquote>
+		</li>
+	</ul>
+</section>
+
+<style>
+	.testimonials { margin: 2rem 0; }
+	.testimonials h2 { margin-bottom: 0.75rem; }
+	.testimonials ul { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1rem; }
+	blockquote { margin: 0; padding: 1rem; border: 1px solid var(--border); border-radius: 0.5rem; background: #fff; }
+	cite { display: block; margin-top: 0.5rem; color: #6b7280; }
+	@media (max-width: 780px) { .testimonials ul { grid-template-columns: 1fr; } }
+</style>
+
+

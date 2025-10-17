@@ -1,0 +1,30 @@
+---
+const items = [
+	{ alt: 'Neutral manicure', src: 'https://images.unsplash.com/photo-1519014241440-5b1be0d59a88?w=800&q=70' },
+	{ alt: 'French tips', src: 'https://images.unsplash.com/photo-1604881987926-c31c4d3d18f9?w=800&q=70' },
+	{ alt: 'Pedicure spa', src: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=800&q=70' },
+];
+---
+
+<section class="gallery" aria-label="Service gallery">
+	<h2>Recent Work</h2>
+	<div class="grid">
+		{items.map((it) => (
+			<figure>
+				<img src={it.src} alt={it.alt} loading="lazy" />
+				<figcaption>{it.alt}</figcaption>
+			</figure>
+		))}
+	</div>
+</section>
+
+<style>
+	.gallery { margin: 2rem 0; }
+	.grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 0.75rem; }
+	figure { margin: 0; border: 1px solid var(--border); border-radius: 0.5rem; overflow: hidden; background: #fff; }
+	img { width: 100%; height: 220px; object-fit: cover; display: block; }
+	figcaption { padding: 0.5rem; color: #6b7280; font-size: 0.9rem; }
+	@media (max-width: 780px) { .grid { grid-template-columns: 1fr; } img { height: 260px; } }
+</style>
+
+
