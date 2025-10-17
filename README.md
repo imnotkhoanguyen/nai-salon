@@ -1,6 +1,6 @@
-# Nai Salon Website (Astro)
+# Nail 90 Spa Website (Astro)
 
-Site for Nai Salon in Green, Ohio built with Astro and deployed on Vercel.
+Site for Nail 90 Spa in Green, Ohio built with Astro and deployed on Vercel.
 
 ## 🚀 Project Structure
 
