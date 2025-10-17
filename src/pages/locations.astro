@@ -11,7 +11,18 @@ import Layout from '../layouts/Layout.astro';
 		<p>1234 Massillon Rd, Green, OH 44685</p>
 		<p><strong>Hours:</strong> Tue–Sat 9am–6pm</p>
 		<p><strong>Phone:</strong> (330) 555-0199</p>
-		<div id="map" class="map" aria-label="Map placeholder">Map preview</div>
+		<div class="map-wrap">
+			<iframe
+				title="Map of Nai Salon in Green, Ohio"
+				width="100%"
+				height="320"
+				style="border:0;border-radius:8px;"
+				loading="lazy"
+				allowfullscreen
+				referrerpolicy="no-referrer-when-downgrade"
+				src="https://www.google.com/maps?q=Green%2C%20Ohio&output=embed">
+			</iframe>
+		</div>
 	</section>
 
 	<p>
@@ -21,7 +32,7 @@ import Layout from '../layouts/Layout.astro';
 
 <style>
 	.card { border: 1px solid var(--border); border-radius: 0.5rem; padding: 1rem; }
-	.map { height: 280px; background: var(--muted); display: grid; place-items: center; color: #6b7280; border-radius: 0.5rem; margin-top: 0.75rem; }
+	.map-wrap { margin-top: 0.75rem; }
 </style>
 
 

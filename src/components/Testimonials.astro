@@ -1,24 +1,18 @@
+---
+import testimonials from '../data/testimonials.json';
+---
+
 <section class="testimonials" aria-label="Customer testimonials">
 	<h2>What Clients Say</h2>
 	<ul>
-		<li>
-			<blockquote>
-				<p>“Best nail salon in Green, Ohio. Clean, kind, and meticulous!”</p>
-				<cite>— Ashley M.</cite>
-			</blockquote>
-		</li>
-		<li>
-			<blockquote>
-				<p>“My gel manicure lasted over three weeks. Highly recommend Nai Salon.”</p>
-				<cite>— Brianna K.</cite>
-			</blockquote>
-		</li>
-		<li>
-			<blockquote>
-				<p>“Beautiful pedicure and relaxing experience. I finally found my spot.”</p>
-				<cite>— Jenna S.</cite>
-			</blockquote>
-		</li>
+		{testimonials.map((t) => (
+			<li>
+				<blockquote>
+					<p>“{t.quote}”</p>
+					<cite>— {t.author}</cite>
+				</blockquote>
+			</li>
+		))}
 	</ul>
 </section>
 

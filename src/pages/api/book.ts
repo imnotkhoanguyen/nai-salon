@@ -16,6 +16,15 @@ export const POST: APIRoute = async ({ request }) => {
 		);
 	}
 
+	// Try to send an email via Resend if environment is configured (non-fatal on failure)
+	try {
+		await sendEmail({
+			subject: `New booking request from ${name}`,
+			html: `<p><strong>Name:</strong> ${escapeHtml(name)}</p><p><strong>Email:</strong> ${escapeHtml(email)}</p><p><strong>Date:</strong> ${escapeHtml(date)}</p><p><strong>Service:</strong> ${escapeHtml(service)}</p>`,
+			replyTo: email,
+		});
+	} catch {}
+
 	const html = `
 	<div id="booking-panel" class="success">
 		<h3>Thanks, ${escapeHtml(name)}!</h3>
@@ -34,6 +43,21 @@ function escapeHtml(input: string): string {
 		.replaceAll('>', '&gt;')
 		.replaceAll('"', '&quot;')
 		.replaceAll("'", '&#39;');
+}
+
+async function sendEmail(params: { subject: string; html: string; replyTo?: string }) {
+	const apiKey = process.env.RESEND_API_KEY;
+	const to = process.env.RESEND_TO;
+	const from = process.env.RESEND_FROM || 'Nai Salon <no-reply@naisalon.local>';
+	if (!apiKey || !to) return; // not configured
+	await fetch('https://api.resend.com/emails', {
+		method: 'POST',
+		headers: {
+			'Authorization': `Bearer ${apiKey}`,
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify({ from, to, subject: params.subject, html: params.html, reply_to: params.replyTo })
+	});
 }
 
 

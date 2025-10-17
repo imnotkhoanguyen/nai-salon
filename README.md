@@ -1,14 +1,10 @@
-# Astro Starter Kit: Basics
+# Nai Salon Website (Astro)
 
-```sh
-npm create astro@latest -- --template basics
-```
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Site for Nai Salon in Green, Ohio built with Astro and deployed on Vercel.
 
 ## 🚀 Project Structure
 
-Inside of your Astro project, you'll see the following folders and files:
+Project structure:
 
 ```text
 /
@@ -18,15 +14,20 @@ Inside of your Astro project, you'll see the following folders and files:
 │   ├── assets
 │   │   └── astro.svg
 │   ├── components
-│   │   └── Welcome.astro
+│   │   └── (custom components)
 │   ├── layouts
-│   │   └── Layout.astro
+│   │   └── Layout.astro
 │   └── pages
-│       └── index.astro
+│       └── index.astro
 └── package.json
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+Key features:
+
+- Pages: Home, Services, Locations, About, Contact, Book, Blog
+- HTMX-enhanced forms: `/contact`, `/book`
+- Data-driven sections: `src/data/testimonials.json`, `src/data/gallery.json`
+- SEO: meta, OpenGraph/Twitter, local `BeautySalon` schema
 
 ## 🧞 Commands
 
@@ -40,6 +41,16 @@ All commands are run from the root of the project, from a terminal:
 | `npm run preview`         | Preview your build locally, before deploying     |
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
+
+## Env configuration (optional)
+
+To enable email notifications via Resend for contact/booking endpoints, set these environment variables (e.g., in Vercel Project Settings → Environment Variables):
+
+- `RESEND_API_KEY`
+- `RESEND_FROM` (e.g., `Nai Salon <hello@yourdomain.com>`)
+- `RESEND_TO` (destination inbox)
+
+Deploy works without these; forms still show success via HTMX.
 
 ## 👀 Want to learn more?
 

@@ -12,6 +12,14 @@ const POST = async ({ request }) => {
       { status: 422, headers: { "Content-Type": "text/html; charset=utf-8" } }
     );
   }
+  try {
+    await sendEmail({
+      subject: `New contact from ${name}`,
+      html: `<p><strong>Name:</strong> ${escapeHtml(name)}</p><p><strong>Email:</strong> ${escapeHtml(email)}</p><p>${escapeHtml(message)}</p>`,
+      replyTo: email
+    });
+  } catch {
+  }
   const html = `
 	<div id="contact-panel" class="success">
 		<h3>Thanks, ${escapeHtml(name)}!</h3>
@@ -22,6 +30,20 @@ const POST = async ({ request }) => {
 };
 function escapeHtml(input) {
   return input.replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;").replaceAll("'", "&#39;");
+}
+async function sendEmail(params) {
+  const apiKey = process.env.RESEND_API_KEY;
+  const to = process.env.RESEND_TO;
+  const from = process.env.RESEND_FROM || "Nai Salon <no-reply@naisalon.local>";
+  if (!apiKey || !to) return;
+  await fetch("https://api.resend.com/emails", {
+    method: "POST",
+    headers: {
+      "Authorization": `Bearer ${apiKey}`,
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ from, to, subject: params.subject, html: params.html, reply_to: params.replyTo })
+  });
 }
 
 const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
