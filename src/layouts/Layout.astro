@@ -1,13 +1,20 @@
 ---
 import { getPageCanonicalUrl } from '../utils/canonical.ts';
+import WebVitalsOptimizer from '../components/WebVitalsOptimizer.astro';
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		
+		<!-- Core Web Vitals Optimizations -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link rel="dns-prefetch" href="//unpkg.com" />
+		<link rel="preload" href="/favicon.svg" as="image" type="image/svg+xml" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{Astro.props.title || "Nail 90 Spa — Green, Ohio"}</title>
 		
@@ -353,11 +360,15 @@ import { getPageCanonicalUrl } from '../utils/canonical.ts';
 			],
 			"sameAs": []
 		})}</script>
-		<script src="https://unpkg.com/htmx.org@1.9.12" integrity="sha384-9I8Pj8y0zG7mQp9nqg9lZC6mZ3wQkSg9l7q7uZ3gk2jz2v3k9P3l0rL7q2nX8Qv1" crossorigin="anonymous"></script>
+		<!-- HTMX loaded asynchronously for better FID -->
+		<script data-defer src="https://unpkg.com/htmx.org@1.9.12" integrity="sha384-9I8Pj8y0zG7mQp9nqg9lZC6mZ3wQkSg9l7q7uZ3gk2jz2v3k9P3l0rL7q2nX8Qv1" crossorigin="anonymous"></script>
 		
 		<!-- Non-critical CSS loading -->
 		<link rel="preload" href="/styles/non-critical.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 		<noscript><link rel="stylesheet" href="/styles/non-critical.css"></noscript>
+		
+		<!-- Web Vitals optimization script -->
+		<script src="/js/web-vitals.js" defer></script>
 		
 		<!-- Lazy Loading Styles -->
 		<style>
@@ -462,6 +473,7 @@ import { getPageCanonicalUrl } from '../utils/canonical.ts';
 		</script>
 	</head>
 	<body>
+		<WebVitalsOptimizer />
 		<header class="site-header">
 			<nav class="nav" hx-boost="true">
 				<a class="brand" href="/">Nail 90 Spa</a>

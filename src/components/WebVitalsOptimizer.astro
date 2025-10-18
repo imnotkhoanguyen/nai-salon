@@ -1,0 +1,258 @@
+---
+// Core Web Vitals optimization component
+---
+
+<!-- LCP (Largest Contentful Paint) Optimization -->
+<script>
+  // Optimize LCP by preloading critical resources
+  (function() {
+    'use strict';
+    
+    // Preload critical images for LCP
+    const criticalImages = [
+      '/images/gallery/portrait-turquoise-nails.webp',
+      '/images/gallery/white-nails-portrait.webp',
+      '/images/gallery/speckled-nail-art.webp'
+    ];
+    
+    criticalImages.forEach(src => {
+      const link = document.createElement('link');
+      link.rel = 'preload';
+      link.as = 'image';
+      link.href = src;
+      link.type = 'image/webp';
+      document.head.appendChild(link);
+    });
+    
+    // Optimize font loading
+    if ('fonts' in document) {
+      document.fonts.ready.then(() => {
+        document.documentElement.classList.add('fonts-loaded');
+      });
+    }
+    
+    // Preload critical CSS
+    const criticalCSS = document.createElement('link');
+    criticalCSS.rel = 'preload';
+    criticalCSS.href = '/styles/critical.css';
+    criticalCSS.as = 'style';
+    criticalCSS.onload = function() {
+      this.rel = 'stylesheet';
+    };
+    document.head.appendChild(criticalCSS);
+  })();
+</script>
+
+<!-- CLS (Cumulative Layout Shift) Prevention -->
+<style>
+  /* Prevent layout shifts */
+  .hero, .services, .card, .gallery-item {
+    contain: layout style;
+  }
+  
+  /* Reserve space for images */
+  .lazy-image-container {
+    aspect-ratio: 4/3;
+    background-color: #f3f4f6;
+  }
+  
+  /* Prevent font swap layout shift */
+  html {
+    font-display: swap;
+  }
+  
+  /* Optimize animations for CLS */
+  .card, .gallery-item {
+    will-change: transform;
+  }
+  
+  /* Prevent layout shift on image load */
+  img {
+    height: auto;
+    max-width: 100%;
+  }
+</style>
+
+<!-- FID (First Input Delay) Optimization -->
+<script>
+  // Optimize FID by reducing JavaScript execution time
+  (function() {
+    'use strict';
+    
+    // Defer non-critical JavaScript
+    const deferScripts = () => {
+      const scripts = document.querySelectorAll('script[data-defer]');
+      scripts.forEach(script => {
+        if (script.src) {
+          const newScript = document.createElement('script');
+          newScript.src = script.src;
+          newScript.async = true;
+          document.head.appendChild(newScript);
+        }
+      });
+    };
+    
+    // Run after page load
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', deferScripts);
+    } else {
+      deferScripts();
+    }
+    
+    // Optimize event listeners
+    const optimizeEventListeners = () => {
+      // Use passive event listeners where possible
+      const passiveEvents = ['scroll', 'touchstart', 'touchmove'];
+      passiveEvents.forEach(eventType => {
+        document.addEventListener(eventType, () => {}, { passive: true });
+      });
+    };
+    
+    optimizeEventListeners();
+  })();
+</script>
+
+<!-- Performance Monitoring -->
+<script>
+  // Core Web Vitals monitoring
+  (function() {
+    'use strict';
+    
+    // Monitor LCP
+    if ('PerformanceObserver' in window) {
+      const lcpObserver = new PerformanceObserver((list) => {
+        const entries = list.getEntries();
+        const lastEntry = entries[entries.length - 1];
+        
+        // Report LCP to analytics
+        if (lastEntry && lastEntry.startTime) {
+          console.log('LCP:', lastEntry.startTime + 'ms');
+          
+          // Send to analytics (replace with your analytics)
+          if (typeof gtag !== 'undefined') {
+            gtag('event', 'web_vitals', {
+              event_category: 'Core Web Vitals',
+              event_label: 'LCP',
+              value: Math.round(lastEntry.startTime)
+            });
+          }
+        }
+      });
+      
+      try {
+        lcpObserver.observe({ entryTypes: ['largest-contentful-paint'] });
+      } catch (e) {
+        console.warn('LCP monitoring not supported');
+      }
+    }
+    
+    // Monitor CLS
+    if ('PerformanceObserver' in window) {
+      let clsValue = 0;
+      const clsObserver = new PerformanceObserver((list) => {
+        for (const entry of list.getEntries()) {
+          if (!entry.hadRecentInput) {
+            clsValue += entry.value;
+          }
+        }
+        
+        // Report CLS
+        if (clsValue > 0) {
+          console.log('CLS:', clsValue);
+          
+          if (typeof gtag !== 'undefined') {
+            gtag('event', 'web_vitals', {
+              event_category: 'Core Web Vitals',
+              event_label: 'CLS',
+              value: Math.round(clsValue * 1000)
+            });
+          }
+        }
+      });
+      
+      try {
+        clsObserver.observe({ entryTypes: ['layout-shift'] });
+      } catch (e) {
+        console.warn('CLS monitoring not supported');
+      }
+    }
+    
+    // Monitor FID
+    if ('PerformanceObserver' in window) {
+      const fidObserver = new PerformanceObserver((list) => {
+        for (const entry of list.getEntries()) {
+          console.log('FID:', entry.processingStart - entry.startTime + 'ms');
+          
+          if (typeof gtag !== 'undefined') {
+            gtag('event', 'web_vitals', {
+              event_category: 'Core Web Vitals',
+              event_label: 'FID',
+              value: Math.round(entry.processingStart - entry.startTime)
+            });
+          }
+        }
+      });
+      
+      try {
+        fidObserver.observe({ entryTypes: ['first-input'] });
+      } catch (e) {
+        console.warn('FID monitoring not supported');
+      }
+    }
+    
+    // Monitor FCP
+    if ('PerformanceObserver' in window) {
+      const fcpObserver = new PerformanceObserver((list) => {
+        const entries = list.getEntries();
+        const fcpEntry = entries.find(entry => entry.name === 'first-contentful-paint');
+        
+        if (fcpEntry) {
+          console.log('FCP:', fcpEntry.startTime + 'ms');
+          
+          if (typeof gtag !== 'undefined') {
+            gtag('event', 'web_vitals', {
+              event_category: 'Core Web Vitals',
+              event_label: 'FCP',
+              value: Math.round(fcpEntry.startTime)
+            });
+          }
+        }
+      });
+      
+      try {
+        fcpObserver.observe({ entryTypes: ['paint'] });
+      } catch (e) {
+        console.warn('FCP monitoring not supported');
+      }
+    }
+  })();
+</script>
+
+<!-- Resource Hints for Performance -->
+<link rel="preload" href="/styles/critical.css" as="style" />
+<link rel="preload" href="/js/performance-monitor.js" as="script" />
+
+<!-- Optimize third-party resources -->
+<script>
+  // Optimize HTMX loading
+  (function() {
+    'use strict';
+    
+    // Load HTMX after critical content
+    const loadHTMX = () => {
+      const script = document.createElement('script');
+      script.src = 'https://unpkg.com/htmx.org@1.9.12';
+      script.integrity = 'sha384-9I8Pj8y0zG7mQp9nqg9lZC6mZ3wQkSg9l7q7uZ3gk2jz2v3k9P3l0rL7q2nX8Qv1';
+      script.crossOrigin = 'anonymous';
+      script.async = true;
+      document.head.appendChild(script);
+    };
+    
+    // Load after page is interactive
+    if (document.readyState === 'complete') {
+      loadHTMX();
+    } else {
+      window.addEventListener('load', loadHTMX);
+    }
+  })();
+</script>
