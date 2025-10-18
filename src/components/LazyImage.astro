@@ -1,0 +1,150 @@
+---
+interface Props {
+  src: string;
+  alt: string;
+  width?: number;
+  height?: number;
+  class?: string;
+  priority?: boolean;
+  placeholder?: string;
+}
+
+const { 
+  src, 
+  alt, 
+  width = 400, 
+  height = 400, 
+  class: className = '',
+  priority = false,
+  placeholder = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjNmNGY2Ii8+PC9zdmc+'
+} = Astro.props;
+
+const imageId = `lazy-image-${Math.random().toString(36).substr(2, 9)}`;
+---
+
+<div class={`lazy-image-container ${className}`} data-image-id={imageId}>
+  <img
+    id={imageId}
+    src={priority ? src : placeholder}
+    data-src={src}
+    alt={alt}
+    width={width}
+    height={height}
+    loading={priority ? 'eager' : 'lazy'}
+    decoding="async"
+    fetchpriority={priority ? 'high' : 'low'}
+    class="lazy-image"
+    style="transition: opacity 0.3s ease;"
+  />
+  <noscript>
+    <img src={src} alt={alt} width={width} height={height} />
+  </noscript>
+</div>
+
+<style>
+  .lazy-image-container {
+    position: relative;
+    overflow: hidden;
+    background-color: #f3f4f6;
+  }
+
+  .lazy-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .lazy-image.loaded {
+    opacity: 1;
+  }
+
+  .lazy-image-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    z-index: 1;
+  }
+
+  .lazy-image.loaded + .lazy-image-container::before {
+    display: none;
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+</style>
+
+<script>
+  // Enhanced lazy loading with Intersection Observer
+  function initLazyLoading() {
+    const lazyImages = document.querySelectorAll('.lazy-image[data-src]');
+    
+    if ('IntersectionObserver' in window) {
+      const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const img = entry.target as HTMLImageElement;
+            const container = img.closest('.lazy-image-container');
+            
+            // Load the actual image
+            img.src = img.dataset.src || '';
+            img.removeAttribute('data-src');
+            
+            // Add loaded class when image loads
+            img.onload = () => {
+              img.classList.add('loaded');
+              if (container) {
+                container.classList.add('loaded');
+              }
+            };
+            
+            // Handle loading errors
+            img.onerror = () => {
+              console.warn('Failed to load image:', img.src);
+              img.classList.add('loaded'); // Still show placeholder
+            };
+            
+            observer.unobserve(img);
+          }
+        });
+      }, {
+        root: null,
+        rootMargin: '50px',
+        threshold: 0.1
+      });
+
+      lazyImages.forEach(img => {
+        imageObserver.observe(img);
+      });
+    } else {
+      // Fallback for older browsers
+      lazyImages.forEach(img => {
+        img.src = img.dataset.src || '';
+        img.classList.add('loaded');
+      });
+    }
+  }
+
+  // Initialize when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initLazyLoading);
+  } else {
+    initLazyLoading();
+  }
+
+  // Re-initialize for dynamic content
+  window.addEventListener('astro:page-load', initLazyLoading);
+</script>

@@ -1,7 +1,83 @@
 [
-	{ "alt": "Neutral manicure", "src": "https://images.unsplash.com/photo-1519014241440-5b1be0d59a88?w=800&q=70" },
-	{ "alt": "French tips", "src": "https://images.unsplash.com/photo-1604881987926-c31c4d3d18f9?w=800&q=70" },
-	{ "alt": "Pedicure spa", "src": "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=800&q=70" }
+  {
+    "id": "portrait-turquoise-nails",
+    "title": "Turquoise Nail Art Portrait",
+    "description": "Beautiful portrait showcasing turquoise nail art with natural lighting",
+    "category": "portrait",
+    "alt": "Woman with turquoise nail art and freckles",
+    "filename": "portrait-turquoise-nails.webp",
+    "featured": true
+  },
+  {
+    "id": "white-nails-portrait",
+    "title": "White Nail Art Portrait",
+    "description": "Elegant portrait with white nail polish and sophisticated styling",
+    "category": "portrait",
+    "alt": "Woman with white nail polish covering face",
+    "filename": "white-nails-portrait.webp",
+    "featured": true
+  },
+  {
+    "id": "speckled-nail-art",
+    "title": "Speckled Quail Egg Nail Art",
+    "description": "Creative speckled nail art design with multiple colors and textures",
+    "category": "nail-art",
+    "alt": "Hand with colorful speckled nail art design",
+    "filename": "speckled-nail-art.webp",
+    "featured": true
+  },
+  {
+    "id": "burgundy-coffin-nails",
+    "title": "Burgundy Coffin Nail Art",
+    "description": "Elegant burgundy coffin-shaped nails with glossy finish",
+    "category": "nail-art",
+    "alt": "Hand with burgundy coffin-shaped nails",
+    "filename": "burgundy-coffin-nails.webp",
+    "featured": true
+  },
+  {
+    "id": "pink-pedicure",
+    "title": "Pink Pedicure",
+    "description": "Vibrant pink pedicure with glossy finish",
+    "category": "pedicure",
+    "alt": "Feet with bright pink pedicure",
+    "filename": "pink-pedicure.webp",
+    "featured": true
+  },
+  {
+    "id": "pink-glitter-nails",
+    "title": "Pink Glitter Nail Art",
+    "description": "Sparkling pink glitter nail art with chunky knit sweater",
+    "category": "nail-art",
+    "alt": "Hand with pink glitter nail polish",
+    "filename": "pink-glitter-nails.webp",
+    "featured": true
+  },
+  {
+    "id": "red-lips-nails-portrait",
+    "title": "Red Lips & Nails Portrait",
+    "description": "Dramatic portrait with red lips and matching nail art",
+    "category": "portrait",
+    "alt": "Woman with red lips and red nail art",
+    "filename": "red-lips-nails-portrait.webp",
+    "featured": true
+  },
+  {
+    "id": "bubblegum-pink-nails",
+    "title": "Bubblegum Pink Nail Art",
+    "description": "Fresh bubblegum pink nail art with natural beauty",
+    "category": "nail-art",
+    "alt": "Woman with bubblegum pink nail art",
+    "filename": "bubblegum-pink-nails.webp",
+    "featured": true
+  },
+  {
+    "id": "hot-pink-sweater-nails",
+    "title": "Hot Pink Sweater & Nails",
+    "description": "Coordinated hot pink nail art with matching sweater",
+    "category": "nail-art",
+    "alt": "Person with hot pink nails and sweater",
+    "filename": "hot-pink-sweater-nails.webp",
+    "featured": true
+  }
 ]
-
-
