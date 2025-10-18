@@ -1,25 +1,101 @@
+# Robots.txt for Nail 90 Spa - Optimized for SEO Crawling
+# https://nai-salon.vercel.app/
+
+# Allow all search engines to crawl the site
 User-agent: *
 Allow: /
 
-# Sitemap
+# Sitemap location
 Sitemap: https://nai-salon.vercel.app/sitemap.xml
 
-# Crawl-delay for respectful crawling
+# Optimized crawl delay for better performance
 Crawl-delay: 1
 
-# Block admin or sensitive areas (if any exist in future)
+# Block sensitive and unnecessary areas
 Disallow: /admin/
 Disallow: /api/
 Disallow: /.env
 Disallow: /node_modules/
+Disallow: /.astro/
+Disallow: /dist/
+Disallow: /src/
+Disallow: /package.json
+Disallow: /package-lock.json
+Disallow: /tsconfig.json
+Disallow: /astro.config.mjs
+Disallow: /.git/
+Disallow: /.vercel/
 
-# Allow all important pages
+# Explicitly allow important service pages for better indexing
 Allow: /services/
 Allow: /acrylic-nails/
+Allow: /acrylic-nails-canton/
 Allow: /gel-nails/
 Allow: /manicure-services/
+Allow: /manicure-canton/
 Allow: /pedicure-services/
+Allow: /pedicure-canton/
 Allow: /nail-art/
 Allow: /nail-extensions/
 Allow: /emergency-nail-services-canton/
+
+# Allow all blog content for content marketing
 Allow: /blog/
+Allow: /blog/*
+
+# Allow core pages
+Allow: /about/
+Allow: /contact/
+Allow: /book/
+Allow: /locations/
+
+# Allow static assets for better page rendering
+Allow: /*.css
+Allow: /*.js
+Allow: /*.png
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.gif
+Allow: /*.svg
+Allow: /*.webp
+Allow: /*.ico
+Allow: /*.woff
+Allow: /*.woff2
+Allow: /*.ttf
+Allow: /*.eot
+
+# Specific directives for major search engines
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 2
+
+# Block AI training crawlers (optional - remove if you want AI training)
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+# Block aggressive crawlers that might impact performance
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+User-agent: MJ12bot
+Crawl-delay: 10
