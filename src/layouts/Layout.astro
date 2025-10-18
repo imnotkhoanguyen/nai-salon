@@ -1,3 +1,7 @@
+---
+import { getPageCanonicalUrl } from '../utils/canonical.ts';
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
@@ -15,6 +19,7 @@
 		<meta property="og:image" content="/favicon.svg" />
 		<meta name="twitter:card" content="summary" />
 		<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+		<link rel="canonical" href={getPageCanonicalUrl(Astro.url.pathname)} />
 		<script type="application/ld+json">{JSON.stringify({
 			"@context": "https://schema.org",
 			"@type": "NailSalon",
