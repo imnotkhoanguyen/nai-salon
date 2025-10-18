@@ -1,0 +1,25 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://nai-salon.vercel.app/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+
+# Block admin or sensitive areas (if any exist in future)
+Disallow: /admin/
+Disallow: /api/
+Disallow: /.env
+Disallow: /node_modules/
+
+# Allow all important pages
+Allow: /services/
+Allow: /acrylic-nails/
+Allow: /gel-nails/
+Allow: /manicure-services/
+Allow: /pedicure-services/
+Allow: /nail-art/
+Allow: /nail-extensions/
+Allow: /emergency-nail-services-canton/
+Allow: /blog/
