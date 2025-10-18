@@ -2,20 +2,167 @@
 			"@context": "https://schema.org",
 			"@type": "NailSalon",
 			"name": "Nail 90 Spa",
-			"address": {"@type":"PostalAddress","addressLocality":"Green","addressRegion":"OH","postalCode":"44685","streetAddress":"1234 Massillon Rd"},
+			"description": "Professional nail salon in Green, Ohio offering acrylic nails, gel manicures, pedicures, nail art, and emergency nail repair services.",
+			"address": {
+				"@type": "PostalAddress",
+				"streetAddress": "1234 Massillon Rd",
+				"addressLocality": "Green",
+				"addressRegion": "OH",
+				"postalCode": "44685",
+				"addressCountry": "US"
+			},
 			"telephone": "+1-330-555-0199",
+			"email": "info@nail90spa.com",
 			"url": "https://nai-salon.vercel.app/",
-			"areaServed": ["Green, Ohio", "Canton, Ohio", "North Canton, Ohio"],
+			"areaServed": [
+				{"@type": "City", "name": "Green", "containedInPlace": {"@type": "State", "name": "Ohio"}},
+				{"@type": "City", "name": "Canton", "containedInPlace": {"@type": "State", "name": "Ohio"}},
+				{"@type": "City", "name": "North Canton", "containedInPlace": {"@type": "State", "name": "Ohio"}}
+			],
 			"image": "https://nai-salon.vercel.app/favicon.svg",
 			"priceRange": "$15-$75",
 			"openingHours": "Tu-Sa 09:00-18:00",
-			"serviceArea": {"@type":"GeoCircle","geoMidpoint":{"@type":"GeoCoordinates","latitude":40.9459,"longitude":-81.4834},"geoRadius":"15000"},
-			"hasOfferCatalog": {"@type":"OfferCatalog","name":"Nail Services","itemListElement":[
-				{"@type":"Offer","itemOffered":{"@type":"Service","name":"Acrylic Nails"}},
-				{"@type":"Offer","itemOffered":{"@type":"Service","name":"Gel Manicures"}},
-				{"@type":"Offer","itemOffered":{"@type":"Service","name":"Pedicures"}},
-				{"@type":"Offer","itemOffered":{"@type":"Service","name":"Nail Art"}}
-			]},
+			"serviceArea": {
+				"@type": "GeoCircle",
+				"geoMidpoint": {
+					"@type": "GeoCoordinates",
+					"latitude": 40.9459,
+					"longitude": -81.4834
+				},
+				"geoRadius": "15000"
+			},
+			"hasOfferCatalog": {
+				"@type": "OfferCatalog",
+				"name": "Nail Services Catalog",
+				"itemListElement": [
+					{
+						"@type": "Offer",
+						"name": "Acrylic Nails",
+						"description": "Professional acrylic nail services including full sets, fills, and repairs",
+						"itemOffered": {
+							"@type": "Service",
+							"name": "Acrylic Nails",
+							"description": "Strong, durable acrylic nail extensions and repairs",
+							"provider": {"@type": "NailSalon", "name": "Nail 90 Spa"},
+							"areaServed": ["Green, Ohio", "Canton, Ohio", "North Canton, Ohio"],
+							"offers": [
+								{"@type": "Offer", "name": "Acrylic Full Set", "price": "65", "priceCurrency": "USD"},
+								{"@type": "Offer", "name": "Acrylic Fill", "price": "40", "priceCurrency": "USD"},
+								{"@type": "Offer", "name": "Acrylic Repair", "price": "15", "priceCurrency": "USD"}
+							]
+						}
+					},
+					{
+						"@type": "Offer",
+						"name": "Gel Manicures",
+						"description": "Long-lasting gel manicures and shellac nail services",
+						"itemOffered": {
+							"@type": "Service",
+							"name": "Gel Manicures",
+							"description": "Chip-free gel manicures lasting 2-3 weeks",
+							"provider": {"@type": "NailSalon", "name": "Nail 90 Spa"},
+							"areaServed": ["Green, Ohio", "Canton, Ohio", "North Canton, Ohio"],
+							"offers": [
+								{"@type": "Offer", "name": "Gel Manicure", "price": "45", "priceCurrency": "USD"},
+								{"@type": "Offer", "name": "Shellac Manicure", "price": "50", "priceCurrency": "USD"},
+								{"@type": "Offer", "name": "Gel Removal", "price": "20", "priceCurrency": "USD"}
+							]
+						}
+					},
+					{
+						"@type": "Offer",
+						"name": "Manicures",
+						"description": "Classic and luxury manicure services",
+						"itemOffered": {
+							"@type": "Service",
+							"name": "Manicures",
+							"description": "Professional manicure services for healthy, beautiful nails",
+							"provider": {"@type": "NailSalon", "name": "Nail 90 Spa"},
+							"areaServed": ["Green, Ohio", "Canton, Ohio", "North Canton, Ohio"],
+							"offers": [
+								{"@type": "Offer", "name": "Classic Manicure", "price": "30", "priceCurrency": "USD"},
+								{"@type": "Offer", "name": "French Manicure", "price": "40", "priceCurrency": "USD"},
+								{"@type": "Offer", "name": "Luxury Manicure", "price": "55", "priceCurrency": "USD"}
+							]
+						}
+					},
+					{
+						"@type": "Offer",
+						"name": "Pedicures",
+						"description": "Relaxing pedicure services from express to deluxe",
+						"itemOffered": {
+							"@type": "Service",
+							"name": "Pedicures",
+							"description": "Professional pedicure services for healthy, beautiful feet",
+							"provider": {"@type": "NailSalon", "name": "Nail 90 Spa"},
+							"areaServed": ["Green, Ohio", "Canton, Ohio", "North Canton, Ohio"],
+							"offers": [
+								{"@type": "Offer", "name": "Express Pedicure", "price": "35", "priceCurrency": "USD"},
+								{"@type": "Offer", "name": "Spa Pedicure", "price": "55", "priceCurrency": "USD"},
+								{"@type": "Offer", "name": "Deluxe Pedicure", "price": "75", "priceCurrency": "USD"}
+							]
+						}
+					},
+					{
+						"@type": "Offer",
+						"name": "Nail Art",
+						"description": "Creative nail art designs and specialty techniques",
+						"itemOffered": {
+							"@type": "Service",
+							"name": "Nail Art",
+							"description": "Creative nail art designs from simple to complex",
+							"provider": {"@type": "NailSalon", "name": "Nail 90 Spa"},
+							"areaServed": ["Green, Ohio", "Canton, Ohio", "North Canton, Ohio"],
+							"offers": [
+								{"@type": "Offer", "name": "Simple Nail Art", "price": "5", "priceCurrency": "USD", "priceSpecification": {"@type": "UnitPriceSpecification", "price": "5", "priceCurrency": "USD", "unitText": "per nail"}},
+								{"@type": "Offer", "name": "Complex Nail Art", "price": "10", "priceCurrency": "USD", "priceSpecification": {"@type": "UnitPriceSpecification", "price": "10", "priceCurrency": "USD", "unitText": "per nail"}},
+								{"@type": "Offer", "name": "Specialty Techniques", "price": "15", "priceCurrency": "USD", "priceSpecification": {"@type": "UnitPriceSpecification", "price": "15", "priceCurrency": "USD", "unitText": "per nail"}}
+							]
+						}
+					},
+					{
+						"@type": "Offer",
+						"name": "Nail Extensions",
+						"description": "Professional nail extensions in acrylic, gel, and polygel",
+						"itemOffered": {
+							"@type": "Service",
+							"name": "Nail Extensions",
+							"description": "Professional nail extensions for length and strength",
+							"provider": {"@type": "NailSalon", "name": "Nail 90 Spa"},
+							"areaServed": ["Green, Ohio", "Canton, Ohio", "North Canton, Ohio"],
+							"offers": [
+								{"@type": "Offer", "name": "Acrylic Extensions", "price": "65", "priceCurrency": "USD"},
+								{"@type": "Offer", "name": "Gel Extensions", "price": "70", "priceCurrency": "USD"},
+								{"@type": "Offer", "name": "Polygel Extensions", "price": "75", "priceCurrency": "USD"}
+							]
+						}
+					},
+					{
+						"@type": "Offer",
+						"name": "Emergency Nail Repair",
+						"description": "Same-day nail repair services for broken or damaged nails",
+						"itemOffered": {
+							"@type": "Service",
+							"name": "Emergency Nail Repair",
+							"description": "Urgent nail repair services for broken, chipped, or damaged nails",
+							"provider": {"@type": "NailSalon", "name": "Nail 90 Spa"},
+							"areaServed": ["Green, Ohio", "Canton, Ohio", "North Canton, Ohio"],
+							"offers": [
+								{"@type": "Offer", "name": "Broken Nail Repair", "price": "15", "priceCurrency": "USD"},
+								{"@type": "Offer", "name": "Chipped Nail Fix", "price": "10", "priceCurrency": "USD"},
+								{"@type": "Offer", "name": "Lifted Nail Repair", "price": "20", "priceCurrency": "USD"}
+							]
+						}
+					}
+				]
+			},
+			"paymentAccepted": ["Cash", "Credit Card", "Debit Card"],
+			"currenciesAccepted": "USD",
+			"amenityFeature": [
+				{"@type": "LocationFeatureSpecification", "name": "Walk-in Appointments", "value": true},
+				{"@type": "LocationFeatureSpecification", "name": "Emergency Services", "value": true},
+				{"@type": "LocationFeatureSpecification", "name": "Parking Available", "value": true}
+			],
 			"sameAs": []
 		})}</script><script src="https://unpkg.com/htmx.org@1.9.12" integrity="sha384-9I8Pj8y0zG7mQp9nqg9lZC6mZ3wQkSg9l7q7uZ3gk2jz2v3k9P3l0rL7q2nX8Qv1" crossorigin="anonymous"></script><style>html,body{margin:0;width:100%;height:100%;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";color:#111827;background:#fff}:root{--accent: #0ea5e9;--accent-600: #0284c7;--muted: #f3f4f6;--border: #e5e7eb}.site-header[data-astro-cid-sckkx6r4]{position:sticky;top:0;z-index:10;background:#fffc;backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid var(--border)}.nav[data-astro-cid-sckkx6r4]{display:flex;align-items:center;gap:1rem;max-width:1000px;margin:0 auto;padding:.75rem 1rem}.nav[data-astro-cid-sckkx6r4] a[data-astro-cid-sckkx6r4]{text-decoration:none;color:#1f2937;font-weight:500}.nav[data-astro-cid-sckkx6r4] a[data-astro-cid-sckkx6r4]:hover{color:var(--accent)}.brand[data-astro-cid-sckkx6r4]{font-weight:700}.spacer[data-astro-cid-sckkx6r4]{flex:1}.btn[data-astro-cid-sckkx6r4]{padding:.4rem .8rem;border-radius:.375rem;background:var(--accent);color:#fff!important}.btn[data-astro-cid-sckkx6r4]:hover{background:var(--accent-600)}.container[data-astro-cid-sckkx6r4]{max-width:1000px;margin:0 auto;padding:2rem 1rem 4rem}.site-footer[data-astro-cid-sckkx6r4]{border-top:1px solid var(--border);background:var(--muted);padding:1rem;text-align:center;color:#4b5563}
 .grid[data-astro-cid-kh7btl4r]{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin-top:1rem}@media(max-width:780px){.grid[data-astro-cid-kh7btl4r]{grid-template-columns:1fr}}
