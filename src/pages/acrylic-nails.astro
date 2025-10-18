@@ -1,0 +1,54 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+	<h1>Acrylic Nails in Green, Ohio</h1>
+	<p>Professional acrylic nail services at Nail 90 Spa. Full sets, fills, and repairs with premium products.</p>
+
+	<section class="services">
+		<div class="card">
+			<h2>Acrylic Full Set</h2>
+			<p><strong>From $65</strong> • 90 minutes</p>
+			<ul>
+				<li>Custom length and shape</li>
+				<li>Premium acrylic application</li>
+				<li>Gel polish finish</li>
+				<li>Cuticle care included</li>
+			</ul>
+		</div>
+		<div class="card">
+			<h2>Acrylic Fill</h2>
+			<p><strong>From $40</strong> • 60 minutes</p>
+			<ul>
+				<li>Grow-out maintenance</li>
+				<li>Shape refinement</li>
+				<li>Color refresh</li>
+				<li>Cuticle cleanup</li>
+			</ul>
+		</div>
+		<div class="card">
+			<h2>Acrylic Repair</h2>
+			<p><strong>From $15</strong> • 30 minutes</p>
+		</div>
+	</section>
+
+	<section class="locations">
+		<h2>Acrylic Nails Near You</h2>
+		<ul>
+			<li><a href="/acrylic-nails-canton">Acrylic Nails Canton OH</a></li>
+			<li><a href="/acrylic-nails-north-canton">Acrylic Nails North Canton</a></li>
+			<li><a href="/acrylic-nails-green">Acrylic Nails Green OH</a></li>
+		</ul>
+	</section>
+
+	<p><a class="btn" href="/book">Book Acrylic Appointment</a></p>
+</Layout>
+
+<style>
+	.services { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1rem; margin: 2rem 0; }
+	.card { border: 1px solid var(--border); border-radius: 0.5rem; padding: 1rem; }
+	.locations { margin: 2rem 0; }
+	.locations ul { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 0.5rem; }
+	@media (max-width: 780px) { .services, .locations ul { grid-template-columns: 1fr; } }
+</style>

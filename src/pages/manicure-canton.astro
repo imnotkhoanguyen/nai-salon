@@ -1,0 +1,68 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+	<h1>Manicure in Canton, Ohio</h1>
+	<p>Professional manicure services in Canton. From classic to luxury treatments at Nail 90 Spa.</p>
+
+	<section class="services">
+		<div class="card">
+			<h2>Classic Manicure</h2>
+			<p><strong>From $30</strong> • 45 minutes</p>
+			<ul>
+				<li>Nail shaping and filing</li>
+				<li>Cuticle care</li>
+				<li>Hand massage</li>
+				<li>Polish application</li>
+			</ul>
+		</div>
+		<div class="card">
+			<h2>French Manicure</h2>
+			<p><strong>From $40</strong> • 50 minutes</p>
+			<ul>
+				<li>Classic white tips</li>
+				<li>Natural base</li>
+				<li>Perfect for any occasion</li>
+				<li>Timeless elegance</li>
+			</ul>
+		</div>
+		<div class="card">
+			<h2>Gel Manicure</h2>
+			<p><strong>From $45</strong> • 60 minutes</p>
+			<ul>
+				<li>Long-lasting gel polish</li>
+				<li>UV/LED curing</li>
+				<li>2-3 week wear</li>
+				<li>Chip-free finish</li>
+			</ul>
+		</div>
+	</section>
+
+	<section class="location-info">
+		<h2>Nail 90 Spa Canton Location</h2>
+		<p><strong>Address:</strong> 1234 Massillon Rd, Green, OH 44685</p>
+		<p><strong>Phone:</strong> (330) 555-0199</p>
+		<p><strong>Hours:</strong> Tue–Sat 9am–6pm</p>
+	</section>
+
+	<section class="nearby">
+		<h2>Manicures Near Canton</h2>
+		<ul>
+			<li><a href="/manicure-north-canton">Manicure North Canton</a></li>
+			<li><a href="/manicure-green">Manicure Green OH</a></li>
+			<li><a href="/nail-salon-canton">Nail Salon Canton OH</a></li>
+		</ul>
+	</section>
+
+	<p><a class="btn" href="/book">Book Manicure in Canton</a></p>
+</Layout>
+
+<style>
+	.services { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1rem; margin: 2rem 0; }
+	.card { border: 1px solid var(--border); border-radius: 0.5rem; padding: 1rem; }
+	.location-info { margin: 2rem 0; padding: 1rem; background: var(--muted); border-radius: 0.5rem; }
+	.nearby { margin: 2rem 0; }
+	.nearby ul { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 0.5rem; }
+	@media (max-width: 780px) { .services, .nearby ul { grid-template-columns: 1fr; } }
+</style>

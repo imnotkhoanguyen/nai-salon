@@ -1,0 +1,71 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+	<h1>Nail Art in Green, Ohio</h1>
+	<p>Creative nail art designs by skilled artists. From simple accents to elaborate masterpieces.</p>
+
+	<section class="services">
+		<div class="card">
+			<h2>Simple Nail Art</h2>
+			<p><strong>From $5 per nail</strong></p>
+			<ul>
+				<li>French tips with color</li>
+				<li>Simple designs</li>
+				<li>Glitter accents</li>
+				<li>Stripes and dots</li>
+			</ul>
+		</div>
+		<div class="card">
+			<h2>Complex Nail Art</h2>
+			<p><strong>From $10 per nail</strong></p>
+			<ul>
+				<li>Detailed designs</li>
+				<li>Hand-painted art</li>
+				<li>3D elements</li>
+				<li>Custom requests</li>
+			</ul>
+		</div>
+		<div class="card">
+			<h2>Specialty Techniques</h2>
+			<p><strong>From $15 per nail</strong></p>
+			<ul>
+				<li>Ombre effects</li>
+				<li>Marble designs</li>
+				<li>Chrome finishes</li>
+				<li>Holographic effects</li>
+			</ul>
+		</div>
+	</section>
+
+	<section class="gallery">
+		<h2>Recent Nail Art</h2>
+		<div class="grid">
+			<div class="nail-art-item">
+				<img src="https://images.unsplash.com/photo-1519014241440-5b1be0d59a88?w=300&q=70" alt="Floral nail art" />
+				<p>Floral Design</p>
+			</div>
+			<div class="nail-art-item">
+				<img src="https://images.unsplash.com/photo-1604881987926-c31c4d3d18f9?w=300&q=70" alt="Geometric nail art" />
+				<p>Geometric Pattern</p>
+			</div>
+			<div class="nail-art-item">
+				<img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=300&q=70" alt="Ombre nail art" />
+				<p>Ombre Effect</p>
+			</div>
+		</div>
+	</section>
+
+	<p><a class="btn" href="/book">Book Nail Art</a></p>
+</Layout>
+
+<style>
+	.services { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1rem; margin: 2rem 0; }
+	.card { border: 1px solid var(--border); border-radius: 0.5rem; padding: 1rem; }
+	.gallery { margin: 2rem 0; }
+	.grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1rem; }
+	.nail-art-item { text-align: center; }
+	.nail-art-item img { width: 100%; height: 200px; object-fit: cover; border-radius: 0.5rem; }
+	@media (max-width: 780px) { .services, .grid { grid-template-columns: 1fr; } }
+</style>

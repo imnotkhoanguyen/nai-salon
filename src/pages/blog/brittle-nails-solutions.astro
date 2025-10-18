@@ -1,0 +1,59 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout>
+	<h1>Brittle Nails Solutions: Expert Tips for Strong, Healthy Nails</h1>
+	<p>Learn how to strengthen brittle nails with professional treatments and home care tips from Nail 90 Spa in Green, Ohio.</p>
+
+	<section class="content">
+		<h2>What Causes Brittle Nails?</h2>
+		<ul>
+			<li>Frequent hand washing</li>
+			<li>Harsh chemicals and detergents</li>
+			<li>Nail polish removers with acetone</li>
+			<li>Poor nutrition</li>
+			<li>Age-related changes</li>
+		</ul>
+
+		<h2>Professional Treatments for Brittle Nails</h2>
+		<div class="treatments">
+			<div class="card">
+				<h3>Nail Strengthening Treatment</h3>
+				<p><strong>From $25</strong></p>
+				<p>Specialized products to rebuild nail structure and prevent breakage.</p>
+			</div>
+			<div class="card">
+				<h3>Paraffin Treatment</h3>
+				<p><strong>From $20</strong></p>
+				<p>Deep moisturizing treatment to restore flexibility and strength.</p>
+			</div>
+			<div class="card">
+				<h3>Builder Gel Application</h3>
+				<p><strong>From $45</strong></p>
+				<p>Protective gel overlay that strengthens while allowing natural nail growth.</p>
+			</div>
+		</div>
+
+		<h2>Home Care Tips</h2>
+		<ol>
+			<li>Keep nails moisturized with cuticle oil</li>
+			<li>Wear gloves when cleaning or doing dishes</li>
+			<li>Use acetone-free nail polish remover</li>
+			<li>File nails in one direction only</li>
+			<li>Eat a balanced diet rich in biotin and protein</li>
+		</ol>
+
+		<h2>When to See a Professional</h2>
+		<p>If your nails are severely brittle, splitting, or showing signs of infection, visit Nail 90 Spa for professional assessment and treatment.</p>
+	</section>
+
+	<p><a class="btn" href="/book">Book Nail Strengthening Treatment</a></p>
+</Layout>
+
+<style>
+	.content { max-width: 800px; margin: 2rem 0; }
+	.treatments { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1rem; margin: 2rem 0; }
+	.card { border: 1px solid var(--border); border-radius: 0.5rem; padding: 1rem; }
+	@media (max-width: 780px) { .treatments { grid-template-columns: 1fr; } }
+</style>

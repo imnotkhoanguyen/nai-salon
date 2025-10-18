@@ -22,10 +22,6 @@
 		{
 			"src": "^/api/book/?$",
 			"dest": "_render"
-		},
-		{
-			"src": "^/api/contact/?$",
-			"dest": "_render"
 		}
 	]
 }

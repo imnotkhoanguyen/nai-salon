@@ -1,0 +1,69 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+	<h1>Emergency Nail Repair in Canton, Ohio</h1>
+	<p>Same-day nail repair services for broken, chipped, or damaged nails. Walk-ins welcome!</p>
+
+	<section class="emergency-services">
+		<div class="card urgent">
+			<h2>Broken Nail Repair</h2>
+			<p><strong>From $15</strong> • 30 minutes</p>
+			<ul>
+				<li>Quick acrylic patch</li>
+				<li>Immediate strength</li>
+				<li>Color matching</li>
+				<li>Same-day service</li>
+			</ul>
+		</div>
+		<div class="card urgent">
+			<h2>Chipped Nail Fix</h2>
+			<p><strong>From $10</strong> • 20 minutes</p>
+			<ul>
+				<li>Polish touch-up</li>
+				<li>Quick filing</li>
+				<li>Seal and protect</li>
+				<li>Walk-in available</li>
+			</ul>
+		</div>
+		<div class="card urgent">
+			<h2>Lifted Nail Repair</h2>
+			<p><strong>From $20</strong> • 45 minutes</p>
+			<ul>
+				<li>Professional reattachment</li>
+				<li>Prevent further damage</li>
+				<li>Strengthen weak spots</li>
+				<li>Expert technique</li>
+			</ul>
+		</div>
+	</section>
+
+	<section class="walk-in">
+		<h2>Walk-In Emergency Services</h2>
+		<p>No appointment needed for urgent nail repairs. We understand nail emergencies happen!</p>
+		<ul>
+			<li>Broken nail emergencies</li>
+			<li>Chipped polish fixes</li>
+			<li>Lifted nail repairs</li>
+			<li>Quick touch-ups</li>
+		</ul>
+	</section>
+
+	<section class="contact-urgent">
+		<h2>Need Immediate Help?</h2>
+		<p><strong>Call: (330) 555-0199</strong></p>
+		<p>Walk-ins welcome • Same-day service available</p>
+	</section>
+
+	<p><a class="btn" href="/book">Book Emergency Repair</a></p>
+</Layout>
+
+<style>
+	.emergency-services { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1rem; margin: 2rem 0; }
+	.card { border: 1px solid var(--border); border-radius: 0.5rem; padding: 1rem; }
+	.card.urgent { border-color: #ef4444; background: #fef2f2; }
+	.walk-in, .contact-urgent { margin: 2rem 0; padding: 1rem; background: var(--muted); border-radius: 0.5rem; }
+	.contact-urgent { background: #fef3c7; border: 1px solid #f59e0b; }
+	@media (max-width: 780px) { .emergency-services { grid-template-columns: 1fr; } }
+</style>

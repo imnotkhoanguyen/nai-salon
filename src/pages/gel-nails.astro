@@ -1,0 +1,55 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+	<h1>Gel Nails & Shellac in Green, Ohio</h1>
+	<p>Long-lasting gel manicures and shellac nails at Nail 90 Spa. Chip-free for 2-3 weeks.</p>
+
+	<section class="services">
+		<div class="card">
+			<h2>Gel Manicure</h2>
+			<p><strong>From $45</strong> • 60 minutes</p>
+			<ul>
+				<li>Gel polish application</li>
+				<li>UV/LED curing</li>
+				<li>Cuticle care</li>
+				<li>2-3 week wear</li>
+			</ul>
+		</div>
+		<div class="card">
+			<h2>Shellac Manicure</h2>
+			<p><strong>From $50</strong> • 60 minutes</p>
+			<ul>
+				<li>CND Shellac system</li>
+				<li>Professional application</li>
+				<li>Easy removal</li>
+				<li>Natural nail protection</li>
+			</ul>
+		</div>
+		<div class="card">
+			<h2>Gel Removal</h2>
+			<p><strong>From $20</strong> • 30 minutes</p>
+		</div>
+	</section>
+
+	<section class="benefits">
+		<h2>Why Choose Gel Nails?</h2>
+		<ul>
+			<li>No chipping or peeling</li>
+			<li>High-gloss finish</li>
+			<li>Quick drying time</li>
+			<li>Strengthens natural nails</li>
+		</ul>
+	</section>
+
+	<p><a class="btn" href="/book">Book Gel Manicure</a></p>
+</Layout>
+
+<style>
+	.services { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1rem; margin: 2rem 0; }
+	.card { border: 1px solid var(--border); border-radius: 0.5rem; padding: 1rem; }
+	.benefits { margin: 2rem 0; }
+	.benefits ul { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 0.5rem; }
+	@media (max-width: 780px) { .services, .benefits ul { grid-template-columns: 1fr; } }
+</style>

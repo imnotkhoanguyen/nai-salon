@@ -1,0 +1,63 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+	<h1>Nail Extensions in Green, Ohio</h1>
+	<p>Professional nail extensions for length and strength. Acrylic, gel, and polygel options available.</p>
+
+	<section class="services">
+		<div class="card">
+			<h2>Acrylic Extensions</h2>
+			<p><strong>From $65</strong> • 90 minutes</p>
+			<ul>
+				<li>Strong and durable</li>
+				<li>Custom length and shape</li>
+				<li>Long-lasting wear</li>
+				<li>Easy maintenance</li>
+			</ul>
+		</div>
+		<div class="card">
+			<h2>Gel Extensions</h2>
+			<p><strong>From $70</strong> • 90 minutes</p>
+			<ul>
+				<li>Flexible and natural feel</li>
+				<li>Less filing required</li>
+				<li>UV/LED cured</li>
+				<li>Easy removal</li>
+			</ul>
+		</div>
+		<div class="card">
+			<h2>Polygel Extensions</h2>
+			<p><strong>From $75</strong> • 90 minutes</p>
+			<ul>
+				<li>Hybrid of acrylic and gel</li>
+				<li>Lightweight feel</li>
+				<li>Easy to shape</li>
+				<li>Long-lasting</li>
+			</ul>
+		</div>
+	</section>
+
+	<section class="shapes">
+		<h2>Popular Extension Shapes</h2>
+		<ul>
+			<li>Square</li>
+			<li>Round</li>
+			<li>Oval</li>
+			<li>Almond</li>
+			<li>Stiletto</li>
+			<li>Coffin</li>
+		</ul>
+	</section>
+
+	<p><a class="btn" href="/book">Book Extensions</a></p>
+</Layout>
+
+<style>
+	.services { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1rem; margin: 2rem 0; }
+	.card { border: 1px solid var(--border); border-radius: 0.5rem; padding: 1rem; }
+	.shapes { margin: 2rem 0; }
+	.shapes ul { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 0.5rem; }
+	@media (max-width: 780px) { .services, .shapes ul { grid-template-columns: 1fr; } }
+</style>
