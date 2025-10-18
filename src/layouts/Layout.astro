@@ -9,11 +9,11 @@ import { getPageCanonicalUrl } from '../utils/canonical.ts';
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Nail 90 Spa — Green, Ohio</title>
-		<meta name="description" content="Nail 90 Spa in Green, Ohio — manicures, pedicures, gel, acrylic, and nail art." />
+		<title>{Astro.props.title || "Nail 90 Spa — Green, Ohio"}</title>
+		<meta name="description" content={Astro.props.description || "Nail 90 Spa in Green, Ohio — manicures, pedicures, gel, acrylic, and nail art."} />
 		<meta name="keywords" content="nail salon Green Ohio, manicure Green OH, pedicure near me, gel manicure Green, acrylic nails Green, nail art Green Ohio, dip powder, spa pedicure" />
-		<meta property="og:title" content="Nail 90 Spa — Green, Ohio" />
-		<meta property="og:description" content="Modern nail services in Green, Ohio: manicures, pedicures, gel, acrylic, nail art." />
+		<meta property="og:title" content={Astro.props.title || "Nail 90 Spa — Green, Ohio"} />
+		<meta property="og:description" content={Astro.props.description || "Modern nail services in Green, Ohio: manicures, pedicures, gel, acrylic, nail art."} />
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content="https://nai-salon.vercel.app/" />
 		<meta property="og:image" content="/favicon.svg" />
